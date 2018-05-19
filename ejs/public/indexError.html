@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我是首页</title>
+		<style type="text/css">
+			div{
+				margin-left:200px;
+				margin-top:50px;
+			}
+			@media only screen and (min-width: 300px) and (max-width: 1000px) {
+				div{
+					margin-left:0px;
+					margin-top:30px;
+				}
+				div input{
+					width:200px;
+					margin-left:30px;
+					height:30px;
+					
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="">						
+					<div class="">
+						姓名<input type="text" name="username" id="username" value="">
+					</div>
+					<div class="">
+						密码<input type="text" name="password" id="password" value="">
+					</div>										
+					<button class="login">登陆</button>	
+					
+		</div>
+		<div class="">						
+							
+					
+			
+				<div class="">
+					姓名<input type="text" name="user" id="user"/>
+				</div>
+				<div class="">
+					密码<input type="pwd" name="pwd" id="pwd"/>
+				</div>
+				<button class="reg">注册</button>	
+				
+				
+		</div>
+		<div class="">
+			<!--<button class="reg">宝贝宝贝</button>-->
+		</div>
+	</body>
+	<script src="http://pv.sohu.com/cityjson"></script>
+	<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var clientIP1 = returnCitySN["cip"];
+		var clientIP2 = returnCitySN["cid"];
+		var clientIP3 = returnCitySN["cname"];
+		console.log(clientIP1);
+		console.log(clientIP2);
+		console.log(clientIP3);
+	</script>
+	
+	<script type="text/javascript">
+		
+		//点击登陆
+		$(function(){
+			$(".login").click(function(){
+				var username=$("#username").val()
+				var password=$("#password").val()				
+				console.log(username)
+				console.log(password)
+				$.ajax({
+					type:"post",
+					url:"/login",
+					async:true,
+					dataType:"json",
+					data:{
+						'username':username,
+						"password":password
+					},
+					success:function(data){						
+							console.log(data)	
+							alert("登陆成功,马上为您跳转")
+								window.location.href="gl.html"						
+				},
+		        error:function (err) { 
+		        	 alert(err.responseText)		        	
+		        }					
+				});
+			})
+		})
+		
+		//点击注册
+		$(function(){
+			$(".reg").click(function(){
+				var names=$("#user").val()
+				var pass=$("#pwd").val()
+				console.log(names)
+				console.log(pass)
+				$.ajax({
+					type:"post",
+					url:"/reg",
+					async:true,
+					dataType:"json",
+					data:{
+						'name':names,
+						"pass":pass
+					},
+					success:function(data){						
+							console.log(data)							
+													
+				},
+		        error:function (err) { 
+		        	 alert(err.responseText)		        	
+		        }					
+				});
+			})
+		})	
+		
+//		https://gjg123.github.io/score/
+//		https://gjg123.github.io/score/ejs/public/index.html
+	</script>
+</html>
