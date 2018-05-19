@@ -69,28 +69,28 @@
 		//点击登陆
 		$(function(){
 			$(".login").click(function(){
-				var username=$("#username").val()
-				var password=$("#password").val()				
-				console.log(username)
-				console.log(password)
-				$.ajax({
-					type:"post",
-					url:"/login",
-					async:true,
-					dataType:"json",
-					data:{
-						'username':username,
-						"password":password
-					},
-					success:function(data){						
-							console.log(data)	
+//				var username=$("#username").val()
+//				var password=$("#password").val()				
+//				console.log(username)
+//				console.log(password)
+//				$.ajax({
+//					type:"post",
+//					url:"/login",
+//					async:true,
+//					dataType:"json",
+//					data:{
+//						'username':username,
+//						"password":password
+//					},
+//					success:function(data){						
+//							console.log(data)	
 							alert("登陆成功,马上为您跳转")
 								window.location.href="gl.html"						
-				},
-		        error:function (err) { 
-		        	 alert(err.responseText)		        	
-		        }					
-				});
+//				},
+//		        error:function (err) { 
+//		        	 alert(err.responseText)		        	
+//		        }					
+//				});
 			})
 		})
 		
@@ -120,5 +120,8 @@
 				});
 			})
 		})	
+		
+//		https://gjg123.github.io/score/
+//		https://gjg123.github.io/score/ejs/public/index.html
 	</script>
 </html>
