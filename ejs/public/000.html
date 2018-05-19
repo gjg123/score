@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tbody1 td{
+				width:100px;
+				height:30px;
+			}
+			.thead1 th{
+				width:100px;
+				height:30px;
+			}
+			.mmm{
+				
+				margin-top:100px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		    <table border="1" cellspacing="0" cellpadding="0">  
+		        <thead class="thead1">  
+		            <tr>  
+		                <th>学号</th>  
+		                <th>姓名</th>  
+		                <th>业务能力分数</th>  
+		                <th>管理能力分数</th>  
+		                <th>专业能力分数</th> 
+		                <th>技术能力分数</th> 
+		                <th>总得分数</th>
+		            </tr>  
+		        </thead>  
+		        <tbody class="tbody1">  
+		            <tr>  
+		                <td>1</td>  
+		                <td>张三</td>  
+		                <td>44</td> 
+		                <td>45</td> 
+		                <td>46</td> 
+		                <td>47</td> 
+		                <td bgcolor="#FF0000">24</td>  
+		                 
+		            </tr>  
+		            <tr>  
+		                <td>1</td>  
+		                <td>张三</td>  
+		                <td>44</td> 
+		                <td>45</td> 
+		                <td>46</td> 
+		                <td>47</td> 
+		                <td bgcolor="#FF0000">75</td> 
+		            </tr>  
+		            <tr>  
+		                <td>1</td>  
+		                <td>张三</td>  
+		                <td>44</td> 
+		                <td>45</td> 
+		                <td>46</td> 
+		                <td>47</td> 
+		                <td bgcolor="#FF0000">60</td>   
+		            </tr>  
+		            <tr>  
+		                <td>1</td>  
+		                <td>张三</td>  
+		                <td>44</td> 
+		                <td>45</td> 
+		                <td>46</td> 
+		                <td>47</td> 
+		                <td bgcolor="#FF0000">23</td>  
+		            </tr>  
+		            <tr>  
+		                <td>1</td>  
+		                <td>张三</td>  
+		                <td>44</td> 
+		                <td>45</td> 
+		                <td>46</td> 
+		                <td>47</td> 
+		                <td bgcolor="#FF0000">45</td>   
+		            </tr>  
+		        </tbody>  
+		    </table>  
+		    
+		     <button class="da">按分数排序</button> 
+		
+		   
+	</body>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+	$(function () {  
+            var num = [];  
+            var $tr = $('.tbody1 tr');  //获取所有tr
+            var $tbody = $('.tbody1');  //获取tab
+            var $sheng = $('.da');  //获取按钮
+            //遍历tr
+            $tr.each(function (index, element) {  
+                for (var i = 0; i < $tr.length; i++) {  
+          
+          		 num[i] = $tr.eq(i).find('td:nth-child(7)').html();
+                }  
+            });  
+            $sheng.click(function (e) {  
+                for (var i = 0; i < num.length; i++) {  
+                    for (var j = i + 1; j < num.length; j++) {  
+                        //从大到小排序/  
+                        if (num[i] < num[j]) {  
+                            var ss = num[i];  
+                            num[i] = num[j];  
+                            num[j] = ss;  
+                            var ss01 = $tr[i];  
+                            $tr[i] = $tr[j];  
+                            $tr[j] = ss01;  
+                        }  
+                    }  
+                }  
+                $tbody.each(function (index, element) {  
+                    for (var i = 0; i < $tr.length; i++) {  
+                    	console.log($tr[i])
+                    	console.log( $(this))
+                        $(this).append($tr[i])  
+                    }  
+                }); 
+            });    
+        }) 
+	</script>
+	
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		   <link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<style type="text/css">
+			*{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.header{
+				width:100%;
+				height:50px;
+				background: #ccc;
+			}
+			.cebian{
+				width:100px;
+				float:left;
+				background: #999;
+			}
+			.cebian li a{
+				display: block;
+				width:100px;
+				height:50px;
+			}
+			.box{
+				width:800px;
+				height:400px;
+				
+				float:left;
+				margin-left:100px;
+			}
+			@media only screen and (min-width: 300px) and (max-width: 1000px) {
+				.cebian{
+					position: absolute;
+					bottom:200px;
+					width:600px;
+					height:50px;
+					
+				}
+				.cebian li a{
+					display: block;
+					width:100px;
+					height:100px;
+					float:left;
+				}
+				.box{
+					width:420px;
+					height:400px;
+					
+					float:left;
+					margin-left:0px;
+					margin-top:30px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<h1>我是头部</h1>
+		</header>
+		<artical>
+			<ul class="cebian">
+				<li>
+					<a href="javascript:;" class="yw">业务</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="gl">管理</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="js">技术</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="zy">专业</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="home">首页</a>
+				</li>
+			</ul>	
+			
+		</artical>
+<div class="box">
+	<h1>我是首页</h1>
+	<table>
+		<thead class="thead1">
+			<tr>
+				<th>姓名</th>
+				<th>业务</th>
+				<th>管理</th>
+				<th>总分</th>
+			</tr>
+		</thead>
+		<tbody class="tbody1">
+			
+		</tbody>
+		<button class="da">按分数排序</button> 
+	</table>
+</div>
+		
+	</body>
+	<script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+
+					$(".yw").click(function(){
+						
+			window.location.href="yw.html"
+		})
+		$(".js").click(function(){
+			window.location.href="js.html"
+		})
+		$(".gl").click(function(){
+			window.location.href="gl.html"
+		})
+		$(".zy").click(function(){
+			window.location.href="zy.html"
+		})
+		$(".home").click(function(){
+			window.location.href="home.html"
+		})
+		
+		
+		
+		
+		
+		$.ajax({
+			type:"post",
+			url:"/getScore",
+			async:true,
+			dataType:"json",					
+			success:function(data){
+				console.log(data)
+				console.log(JSON.parse(data[0].scoreY))
+				console.log(JSON.parse(data[1].scoreG))
+				
+			
+				var arr1=JSON.parse(data[0].scoreY)
+				var arr2=JSON.parse(data[1].scoreG)
+				console.log(arr1)
+				console.log(arr2)
+				var html=''
+				for (var i=0;i<arr1.length;i++){
+			//		console.log(arr1[i].unitcost)
+			//		console.log(arr2[i].unitcost)
+					var num1=parseInt(arr1[i].unitcost)+parseInt(arr2[i].unitcost)
+					console.log(num1)
+					html+="<tr>"
+					html+=		"<td>姓名</td>"
+					html+=		"<td>"+arr1[i].unitcost+"</td>"
+					html+=		"<td>"+arr2[i].unitcost+"</td>"
+					html+=		"<td>"+num1+"</td>"
+					html+=	"</tr>"
+				}
+				
+				$(".tbody1").append(html)
+				  var num = [];  
+            var $tr = $('.tbody1 tr');  //获取所有tr
+            var $tbody = $('.tbody1');  //获取tab
+            var $sheng = $('.da');  //获取按钮
+            //遍历tr
+            $tr.each(function (index, element) {  
+                for (var i = 0; i < $tr.length; i++) {  
+          
+          		 num[i] = $tr.eq(i).find('td:nth-child(3)').html();
+                }  
+            });  
+            $sheng.click(function (e) {  
+                for (var i = 0; i < num.length; i++) {  
+                    for (var j = i + 1; j < num.length; j++) {  
+                        //从大到小排序/  
+                        if (num[i] < num[j]) {  
+                            var ss = num[i];  
+                            num[i] = num[j];  
+                            num[j] = ss;  
+                            var ss01 = $tr[i];  
+                            $tr[i] = $tr[j];  
+                            $tr[j] = ss01;  
+                        }  
+                    }  
+                }  
+                $tbody.each(function (index, element) {  
+                    for (var i = 0; i < $tr.length; i++) {  
+                    	console.log($tr[i])
+                    	console.log( $(this))
+                        $(this).append($tr[i])  
+                    }  
+                }); 
+            }); 
+			}
+		});
+		
+	</script>
+
+</html>
+
+
+

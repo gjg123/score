@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/mobile.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.mobile.js"></script>
+	
+		<style type="text/css">
+			*{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.header{
+				width:100%;
+				height:50px;
+				background: #ccc;
+			}
+			.cebian{
+				width:100px;
+				float:left;
+				background: #999;
+			}
+			.cebian li a{
+				display: block;
+				width:100px;
+				height:50px;
+			}
+			.box{
+				width:420px;
+				height:400px;
+				
+				float:left;
+				margin-left:100px;
+			}
+			@media only screen and (min-width: 300px) and (max-width: 1000px) {
+				.cebian{
+					position: absolute;
+					bottom:0;
+					width:600px;
+					height:50px;
+					
+				}
+				.cebian li a{
+					display: block;
+					width:50px;
+					height:50px;
+					float:left;
+				}
+				.box{
+					width:420px;
+					height:400px;
+					
+					float:left;
+					margin-left:0px;
+					margin-top:30px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<h1>我是头部</h1>
+		</header>
+		<artical>
+			<ul class="cebian">
+				<li>
+					<a href="javascript:;" class="yw">业务</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="gl">管理</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="js">技术</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="zy">专业</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="home">首页</a>
+				</li>
+			</ul>	
+			
+		</artical>
+<div class="box">
+	<h1>我是管理</h1>
+		
+	<div style="margin:20px 0;"></div>
+	
+	<table id="dg" class="easyui-datagrid" title="Cache Editor for DataGrid" 
+			data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				url: 'datagrid_data1.json',
+				method: 'get',
+				onClickRow: onClickRow
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'itemid',width:80">Item ID</th>
+			
+				<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+				<th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>
+				<th data-options="field:'attr1',width:100,">Attribute</th>
+				<th data-options="field:'status',width:60,align:'center'">Status</th>
+			</tr>
+		</thead>
+	</table>
+
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">Accept</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="sub()">提交</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>
+	</div>
+</div>
+		
+	</body>
+	
+	<script type="text/javascript">
+
+					$(".yw").click(function(){
+						
+			window.location.href="yw.html"
+		})
+		$(".js").click(function(){
+			window.location.href="js.html"
+		})
+		$(".gl").click(function(){
+			window.location.href="gl.html"
+		})
+		$(".zy").click(function(){
+			window.location.href="zy.html"
+		})
+$(".home").click(function(){
+			window.location.href="home.html"
+		})
+	</script>
+	
+	<script type="text/javascript">
+		var arr=[]
+		var editIndex = undefined;
+		function endEditing(){
+
+			 arr=$('#dg').datagrid('getRows')
+					
+			
+			
+		
+
+ 
+		
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+				var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'unitcost'});
+				console.log(ed['oldHtml'])
+				
+				
+				var productname = $(ed.target).combobox('getText');
+				
+			
+				$('#dg').datagrid('getRows')[editIndex]['productname'] = productname;
+				$('#dg').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+							console.log()
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function accept(){
+			if (endEditing()){
+				$('#dg').datagrid('acceptChanges');
+			}
+		}
+		function sub(){
+			if (endEditing()){
+				//$('#dg').datagrid('acceptChanges');
+				
+				
+				
+				$.ajax({
+					type:"post",
+					url:"/score",
+					async:true,
+					dataType:"json",
+					data:{
+						"scoreG":JSON.stringify(arr),
+						"itemid":"EST-2"
+					},
+					success:function(data){
+						console.log(JSON.parse(data.scoreG))
+						var arr1=JSON.parse(data.scoreG)
+						$.each(arr1, function(index,ele) {
+							console.log(ele.unitcost)
+							
+						});
+						
+					}
+				});
+				
+			}
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+			alert(rows.length+' rows are changed!');
+		}
+		
+	</script>
+</html>
+
+
+
+         
+
+
+
+
