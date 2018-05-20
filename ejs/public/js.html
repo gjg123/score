@@ -196,13 +196,13 @@
 	//获取打分结果	
 	//获取打分结果	
 	var data1=[		
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "张三"},
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "李四"},			
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "丽丽"},			
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟子"},
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟娟"},	
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "莉莉"},	
-{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "王五"}	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 15,"status": "P","listprice": "二部","attr1": "设计","itemid": "张三"},
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 31,"status": "P","listprice": "二部","attr1": "设计","itemid": "李四"},			
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 16,"status": "P","listprice": "二部","attr1": "设计","itemid": "丽丽"},			
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 70,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟子"},
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 80,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟娟"},	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 68,"status": "P","listprice": "二部","attr1": "设计","itemid": "莉莉"},	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 41,"status": "P","listprice": "二部","attr1": "设计","itemid": "王五"}	
 	]
 		var  aa=JSON.parse(getCookie("scoreJ"))
 		var c_start=document.cookie.indexOf("scoreJ=")
@@ -281,7 +281,7 @@
 					//	console.log(data)
 						 
 						console.log(JSON.stringify(data))
-						setCookie("scoreJ",JSON.stringify(data))
+						setCookie("scoreJ",JSON.stringify(data),7)
 						
 					}
 				});

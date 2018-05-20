@@ -194,20 +194,38 @@
          return null;
      };	
 	//获取打分结果	
-	//	JSON.stringify(arr)
-	//JSON.parse(getCookie("scoreZ"))
-		
-		var aa=JSON.parse(getCookie("scoreZ"))		
-		console.log(JSON.parse(aa.scoreZ))
-		var obj={
-			"rows":JSON.parse(aa.scoreZ)
-		}
-		
-		$(function(){
-			$('#dg').datagrid({
-				data: obj
+	//获取打分结果	
+	var data1=[		
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 15,"status": "P","listprice": "二部","attr1": "设计","itemid": "张三"},
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 31,"status": "P","listprice": "二部","attr1": "设计","itemid": "李四"},			
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 16,"status": "P","listprice": "二部","attr1": "设计","itemid": "丽丽"},			
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 70,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟子"},
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 80,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟娟"},	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 68,"status": "P","listprice": "二部","attr1": "设计","itemid": "莉莉"},	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 41,"status": "P","listprice": "二部","attr1": "设计","itemid": "王五"}	
+	]
+		var  aa=JSON.parse(getCookie("scoreZ"))
+		var c_start=document.cookie.indexOf("scoreZ=")
+		if (c_start==-1) {
+			var obj1={
+				"rows":data1
+			}
+			$(function(){
+				$('#dg').datagrid({
+					data: obj1
+				});
 			});
-		});
+		}else {			
+			//	console.log(JSON.parse(aa.scoreJ))
+			var obj={
+				"rows":JSON.parse(aa.scoreZ)
+			}		
+			$(function(){
+				$('#dg').datagrid({
+					data: obj
+				});
+			});
+		}
 		
 		
 		var arr=[]
@@ -263,7 +281,7 @@
 					//	console.log(data)
 						 
 						console.log(JSON.stringify(data))
-						setCookie("scoreZ",JSON.stringify(data))
+						setCookie("scoreZ",JSON.stringify(data),7)
 						
 					}
 				});
