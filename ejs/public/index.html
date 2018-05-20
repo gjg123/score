@@ -853,8 +853,18 @@ $(function(){
 		console.log("注册")
 				
 		}else if ($("#js-btn").attr('class')=="ui-button --usr-rtn") {
-				console.log("登陆")
-		window.location.href="gl.html"
+			var username=$("#js-field__email").val()
+			var password=$("#js-field__pass").val()
+			console.log(username)
+			console.log(password)
+			if (username=="武大郎"&&password==123456) {
+				alert("登陆成功")
+				window.location.href="gl.html"
+			}else{
+				alert("登陆失败")
+			}
+				
+		
 		}else {
 				console.log("注册成功")					
 		}			
