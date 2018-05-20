@@ -765,29 +765,35 @@ input:focus {
   left: 9.5rem;
 }
 
-input[type=button] {
+a {
   background: #16a085;
   color: #fff;
   cursor: pointer;
   font-weight: 500;
-  margin: .5rem 0;
+  margin: 2rem 0;
   text-transform: capitalize;
   -webkit-transition: background 300ms;
   transition: background 300ms;
 }
-
-input[type=button]:hover {
+a{
+	display: inline-block;
+  text-align: center;
+  line-height: 4rem;
+}
+a:hover {
   background: #138a72;
 }
-input[type=button].--usr-rtn::before {
+a.--usr-rtn::before {
   content: '登录';
 }
-input[type=button].--usr-new::before {
+a.--usr-new::before {
   content: "注册";
 }
-button.--usr-rst::before {
+a.--usr-rst::before {
   content: "重置密码";
+  
 }
+/*input[type=button]*/
 #title{
 	position: absolute;
 	top:90px;
@@ -809,8 +815,8 @@ button.--usr-rst::before {
     <span class="pointer "></span>
     <input type="text" placeholder="姓名" class="ui-field" id="js-field__email" />
     <input type="password" placeholder="密码" class="ui-field" id="js-field__pass" />
-    <input type="password" placeholder="确认密码" class="ui-field" id="js-field__r-pass" />
-    <input id="js-btn" class="ui-button --usr-new" type="button"></input>
+    <input type="password" placeholder="确认密码" class="ui-field" id="js-field__r-pass" /> 
+  	<a href="#" id="js-btn" class="ui-button --usr-new"></a>
   </form>
 </div>
 <script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -823,8 +829,6 @@ $('.select__label').click(function() {
 });
 //点击第一排登陆按钮
 $('#js-usr-rtn').click(function() {
-		
-		
 		$('#js-btn, .pointer, #js-field__pass').removeClass('--usr-new --usr-rst ui-field--hidden');
 		$('#js-btn, .pointer').addClass('--usr-rtn');
 		$('#js-field__r-pass').addClass('ui-field--hidden');
@@ -842,20 +846,9 @@ $('#js-usr-rst').click(function() {
 		$('#js-field__r-pass, #js-field__pass').addClass('ui-field--hidden');
 });
 //点击登陆
+$(function(){
+	$("#js-btn").click(function(){
 
-//select__label select__label--active
-//	var aa=$("#js-btn").attr('class')
-//	console.log(aa)
-//	$("--usr-new").click(function(){
-//		window.location.href="gl.html"
-//	})
-//	if (aa==){
-//		
-//	}
-$("#js-btn").click(function(){
-//	alert($("#js-btn").attr('class'))
-//
-//alert(aa)
 		if ($("#js-btn").attr('class')=="ui-button --usr-new") {
 		console.log("注册")
 				
@@ -863,12 +856,10 @@ $("#js-btn").click(function(){
 				console.log("登陆")
 		window.location.href="gl.html"
 		}else {
-			
-			
-			
-		}
-			
+				console.log("注册成功")					
+		}			
 	})
+})
 //	console.log($("#js-btn").attr('class'))
 //	alert(123)
 //	var username=$("#js-field__email").val()

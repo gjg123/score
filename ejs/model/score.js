@@ -8,6 +8,8 @@ var Schema = mongoose.Schema;
 var ScoreSchema = new Schema({
 	
 	scoreG:String,
+	scoreZ:String,
+	scoreJ:String,
 	scoreY:String,
 	itemid:String
 

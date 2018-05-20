@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-	<link rel="stylesheet" type="text/css" href="themes/metro/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/black/easyui.css">
 	<link rel="stylesheet" type="text/css" href="themes/mobile.css">
 	<link rel="stylesheet" type="text/css" href="themes/icon.css">
 	<script type="text/javascript" src="jquery.min.js"></script>
@@ -17,13 +17,19 @@
 				padding: 0;
 				margin: 0;
 			}
+			body{
+				background:limegreen ;
+			}
 			.header{
 				width:100%;
 				height:50px;
-				background: #ccc;
+				background: #357ebd;
+				text-align: center;
+				color:#fff;
 			}
+			
 			.cebian{
-				width:100px;
+				
 				float:left;
 				background: #999;
 			}
@@ -43,30 +49,48 @@
 				.cebian{
 					position: absolute;
 					bottom:0;
-					width:600px;
+					width:100%;
 					height:50px;
+					background: deepskyblue;
 					
 				}
 				.cebian li a{
 					display: block;
-					width:50px;
+					width:20%;
+					text-decoration: none;
 					height:50px;
+					line-height: 50px;
 					float:left;
+					text-align: center;
+					color:#fff;
 				}
+				
 				.box{
-					width:420px;
-					height:400px;
+					position: absolute;
+					top:0;
+					bottom:0;
+					right:0;
+					left:0;
+					width:80%;
+					height:80%;
+					background: peachpuff;
+					margin:auto;
 					
-					float:left;
-					margin-left:0px;
-					margin-top:30px;
+				}
+				.box h3{
+					padding-top:10px;
+					box-sizing: border-box;
+					width:100%;
+					height:30px;
+					line-height: 30px;
+					text-align: center;
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<header class="header">
-			<h1>我是头部</h1>
+			<h1>欢迎光临</h1>
 		</header>
 		<artical>
 			<ul class="cebian">
@@ -89,35 +113,34 @@
 			
 		</artical>
 <div class="box">
-	<h1>我是管理</h1>
+	<h3>我是技术</h3>
 		
 	<div style="margin:20px 0;"></div>
 	
-	<table id="dg" class="easyui-datagrid" title="Cache Editor for DataGrid" 
+	<table id="dg" class="easyui-datagrid" title="技术打分" 
 			data-options="
 				iconCls: 'icon-edit',
 				singleSelect: true,
-				toolbar: '#tb',
-				url: 'datagrid_data1.json',
-				method: 'get',
+				toolbar: '#tb',				
 				onClickRow: onClickRow
 			">
 		<thead>
 			<tr>
-				<th data-options="field:'itemid',width:80">Item ID</th>
+				<th data-options="field:'itemid',width:50">姓名</th>
 			
-				<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-				<th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>
-				<th data-options="field:'attr1',width:100,">Attribute</th>
+				<th data-options="field:'listprice',width:50,align:'right'">部门</th>
+				<th data-options="field:'attr1',width:50,">职位</th>
+				<th data-options="field:'unitcost',width:50,align:'right',editor:'numberbox'">分数</th>
+				
 				<th data-options="field:'status',width:60,align:'center'">Status</th>
 			</tr>
 		</thead>
 	</table>
 
 	<div id="tb" style="height:auto">
-		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">Accept</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">保存</a>
 		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="sub()">提交</a>
-		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>
+		
 	</div>
 </div>
 		
@@ -125,8 +148,7 @@
 	
 	<script type="text/javascript">
 
-					$(".yw").click(function(){
-						
+		$(".yw").click(function(){						
 			window.location.href="yw.html"
 		})
 		$(".js").click(function(){
@@ -138,24 +160,78 @@
 		$(".zy").click(function(){
 			window.location.href="zy.html"
 		})
-$(".home").click(function(){
+		$(".home").click(function(){
 			window.location.href="home.html"
 		})
 	</script>
 	
 	<script type="text/javascript">
+//	   * 设置cookie
+//     * @param name cookie的名称
+//     * @param value cookie的值
+//     * @param day cookie的过期时间
+//     */
+      var setCookie = function (name, value, day) {
+        if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+          var expires = day * 24 * 60 * 60 * 1000;
+         var date = new Date(+new Date()+expires);
+         document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+       }else{
+         document.cookie = name + "=" + escape(value);
+       }
+     };
+	 /**
+       * 获取对应名称的cookie
+       * @param name cookie的名称
+       * @returns {null} 不存在时，返回null
+      */
+      var getCookie = function (name) {
+        var arr;
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+         return unescape(arr[2]);
+       else
+         return null;
+     };	
+	//获取打分结果	
+	//获取打分结果	
+	var data1=[		
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "张三"},
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "李四"},			
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "丽丽"},			
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟子"},
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "娟娟"},	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "莉莉"},	
+{"productid": "FI-SW-01","productname": "Koi","unitcost": 22,"status": "P","listprice": "二部","attr1": "设计","itemid": "王五"}	
+	]
+		var  aa=JSON.parse(getCookie("scoreJ"))
+		var c_start=document.cookie.indexOf("scoreJ=")
+		if (c_start==-1) {
+			var obj1={
+				"rows":data1
+			}
+			$(function(){
+				$('#dg').datagrid({
+					data: obj1
+				});
+			});
+		}else {			
+			//	console.log(JSON.parse(aa.scoreJ))
+			var obj={
+				"rows":JSON.parse(aa.scoreJ)
+			}		
+			$(function(){
+				$('#dg').datagrid({
+					data: obj
+				});
+			});
+		}
+		
+		
 		var arr=[]
 		var editIndex = undefined;
 		function endEditing(){
-
-			 arr=$('#dg').datagrid('getRows')
-					
-			
-			
-		
-
- 
-		
+			arr=$('#dg').datagrid('getRows')
 			if (editIndex == undefined){return true}
 			if ($('#dg').datagrid('validateRow', editIndex)){
 				var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'unitcost'});
@@ -192,26 +268,20 @@ $(".home").click(function(){
 		}
 		function sub(){
 			if (endEditing()){
-				//$('#dg').datagrid('acceptChanges');
-				
-				
-				
 				$.ajax({
 					type:"post",
 					url:"/score",
 					async:true,
 					dataType:"json",
 					data:{
-						"scoreG":JSON.stringify(arr),
-						"itemid":"EST-2"
+						"scoreJ":JSON.stringify(arr),
+						"itemid":"EST-4"
 					},
 					success:function(data){
-						console.log(JSON.parse(data.scoreG))
-						var arr1=JSON.parse(data.scoreG)
-						$.each(arr1, function(index,ele) {
-							console.log(ele.unitcost)
-							
-						});
+					//	console.log(data)
+						 
+						console.log(JSON.stringify(data))
+						setCookie("scoreJ",JSON.stringify(data))
 						
 					}
 				});
