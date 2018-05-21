@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="themes/black/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/mobile.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.mobile.js"></script>
+	
+		<style type="text/css">
+			html{
+				height:100%;
+				width:100%;
+				position: relative;
+			}
+		span{
+		display: inline-block;
+			width:40px;
+			height:40px;
+			border-radius: 50%;
+			background: #000;
+			font-size: 16px;
+			text-align: center;
+			line-height: 40px;
+			color:#fff;
+		}
+		.list{
+			width:600px;
+			height:50px;
+			margin:0 auto;
+			
+		}
+		.line{
+			width:100%;
+			height:2px;
+			background: red;
+		}
+		</style>
+	</head>
+	<body>
+	<div class="list">
+		<span>张三</span>
+		<span>李四</span>	
+		<span>王五</span>
+		<span>娟娟</span>
+		<span>莉莉</span>
+	</div>
+	<div class="list2">
+		<div class="">
+			<span>张三</span>
+			<i>VS</i>
+			<span>李四</span>	
+			<span>张三</span>
+			<select name="ss" id="zhangsan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>李四</span>
+			<select name="ss" id="lisi">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>	
+		</div>
+		<div class="">
+			<span>张三</span>
+			<i>VS</i>
+			<span>王五</span>	
+			<span>张三</span>
+			<select name="ss" id="zhangsan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>王五</span>
+			<select name="ss" id="wangwu">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="">
+			<span>张三</span>
+			<i>VS</i>
+			<span>娟娟</span>	
+			<span>张三</span>
+			<select name="ss" id="zhangsan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>娟娟</span>
+			<select name="ss" id="juanjuan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="">
+			<span>张三</span>
+			<i>VS</i>
+			<span>莉莉</span>	
+			<span>张三</span>
+			<select name="ss" id="zhangsan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>莉莉</span>
+			<select name="ss" id="lili">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="line">
+			
+		</div>
+		<div class="">
+			<span>李四</span>
+			<i>VS</i>
+			<span>王五</span>	
+			<span>李四</span>
+			<select name="ss" id="lisi">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>王五</span>
+			<select name="ss" id="wangwu">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="">
+			<span>李四</span>
+			<i>VS</i>
+			<span>娟娟</span>	
+			<span>李四</span>
+			<select name="ss" id="lisi">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>娟娟</span>
+			<select name="ss" id="juanjuan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="">
+			<span>李四</span>
+			<i>VS</i>
+			<span>莉莉</span>	
+			<span>李四</span>
+			<select name="ss" id="lisi">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>莉莉</span>
+			<select name="ss" id="lili">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="line">
+			
+		</div>
+		<div class="">
+			<span>王五</span>
+			<i>VS</i>
+			<span>娟娟</span>	
+			<span>王五</span>
+			<select name="ss" id="wangwu">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>娟娟</span>
+			<select name="ss" id="juanjuan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="">
+			<span>王五</span>
+			<i>VS</i>
+			<span>莉莉</span>	
+			<span>王五</span>
+			<select name="ss" id="wangwu">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>莉莉</span>
+			<select name="ss" id="lili">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		<div class="line">
+			
+		</div>
+		<div class="">
+			<span>娟娟</span>
+			<i>VS</i>
+			<span>莉莉</span>	
+			<span>娟娟</span>
+			<select name="ss" id="juanjuan">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+			<span>莉莉</span>
+			<select name="ss" id="lili">
+				<option value="0">0</option>
+				<option value="1">1</option>
+			</select>
+		</div>
+		
+	</div>
+	
+	<button class="btn">保存</button>
+	</body>
+	<script type="text/javascript">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//	   * 设置cookie
+//     * @param name cookie的名称
+//     * @param value cookie的值
+//     * @param day cookie的过期时间
+//     */
+      var setCookie = function (name, value, day) {
+        if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+          var expires = day * 24 * 60 * 60 * 1000;
+         var date = new Date(+new Date()+expires);
+         document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+       }else{
+         document.cookie = name + "=" + escape(value);
+       }
+     };
+	 /**
+       * 获取对应名称的cookie
+       * @param name cookie的名称
+       * @returns {null} 不存在时，返回null
+      */
+      var getCookie = function (name) {
+        var arr;
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+         return unescape(arr[2]);
+       else
+         return null;
+     };
+	
+		
+		
+		
+		var names=getCookie("username")
+		
+		
+		console.log(names)
+		
+		
+			
+			$('select#zhangsan').change(function(){
+				    var sum = 0;
+				    $('select#zhangsan :selected').each(function() {
+				        sum += Number($(this).val());
+				    });
+				   
+				    console.log("张三的分数"+sum)
+				   var aa=sum
+				   console.log(aa)
+				    setCookie("zhangsanyewu",aa)
+			});
+			
+			$('select#juanjuan').change(function(){
+				    var sum1 = 0;
+				    $('select#juanjuan :selected').each(function() {
+				        sum1 += Number($(this).val());
+				    });
+				    console.log("娟娟的分数"+sum1)
+				    var bb=sum1
+				    console.log(bb)
+				    setCookie("juanjuanyewu",bb)
+				    
+			});
+			$('select#lisi').change(function(){
+				    var sum2 = 0;
+				    $('select#lisi :selected').each(function() {
+				        sum2 += Number($(this).val());
+				    });
+				    console.log("李四的分数"+sum2)
+				    var cc=sum2
+				    console.log(cc)
+				    setCookie("lisiyewu",cc)
+				    
+			});
+			$('select#wangwu').change(function(){
+				    var sum3 = 0;
+				    $('select#wangwu :selected').each(function() {
+				        sum3 += Number($(this).val());
+				    });
+				    console.log("王五的分数"+sum3)
+				    var dd=sum3
+				    console.log(dd)
+				     var obj3={
+				    	"name":names,
+				    	"wangwuyewu":dd
+				    }
+				    
+				    setCookie("wangwuyewu",JSON.stringify(obj3))
+				    
+			});
+			$('select#lili').change(function(){
+				    var sum4 = 0;
+				    $('select#lili :selected').each(function() {
+				        sum4 += Number($(this).val());
+				    });
+				    console.log("莉莉的分数"+sum4)
+				    var ee=sum4
+				    console.log(ee)
+				    var obj4={
+				    	"name":names,
+				    	"liliyewu":ee
+				    }
+				    
+				    setCookie("liliyewu",JSON.stringify(obj4))
+				    
+			});
+	</script>
+	
+</html>
+
+
+
+         
+
+
+
+

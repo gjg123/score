@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="themes/black/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/mobile.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.mobile.js"></script>
+	
+		<style type="text/css">
+			html{
+				height:100%;
+				width:100%;
+				position: relative;
+			}
+			.box1{
+				margin:20px 30px
+			}
+		</style>
+	</head>
+	<body>
+	<h1>结果</h1>
+	<div class="box1">
+		<div class="">
+			<span>打分数的人是：</span>
+			<span class="scores"></span>
+		</div>
+		<div class="">
+			<span>莉莉的分数是</span>
+			<span class="lili"></span>
+		</div>
+		<div class="">
+			<span>王五的分数是</span>
+			<span class="wangwu"></span>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript">
+		//	   * 设置cookie
+//     * @param name cookie的名称
+//     * @param value cookie的值
+//     * @param day cookie的过期时间
+//     */
+      var setCookie = function (name, value, day) {
+        if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+          var expires = day * 24 * 60 * 60 * 1000;
+         var date = new Date(+new Date()+expires);
+         document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+       }else{
+         document.cookie = name + "=" + escape(value);
+       }
+     };
+	 /**
+       * 获取对应名称的cookie
+       * @param name cookie的名称
+       * @returns {null} 不存在时，返回null
+      */
+      var getCookie = function (name) {
+        var arr;
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+         return unescape(arr[2]);
+       else
+         return null;
+     };
+		
+		
+		console.log("张三的分数"+getCookie("zhangsanyewu"))	
+		console.log("娟娟的分数"+getCookie("juanjuanyewu"))	
+		console.log("李四的分数"+getCookie("lisiyewu"))	
+		console.log("莉莉的分数"+getCookie("liliyewu"))
+		console.log("王五的分数"+getCookie("wangwuyewu"))
+		
+		 var obj=JSON.parse(getCookie("liliyewu"))
+		 var obj1=JSON.parse(getCookie("wangwuyewu"))
+		console.log(obj.name)
+		console.log(obj.liliyewu)
+		$(".scores").append(obj.name)
+		$(".lili").append(obj.liliyewu)
+		$(".wangwu").append(obj1.wangwuyewu)
+		
+		
+		
+		
+		
+	//	JSON.stringify(getCookie("liliyewu"))
+	//	JSON.parse(getCookie("liliyewu"))
+	//	console.log("莉莉的分数"+JSON.stringify(getCookie("liliyewu")))	
+	</script>
+	
+</html>
+
+
+
+         
+
+
+
+

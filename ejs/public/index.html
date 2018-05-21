@@ -821,6 +821,43 @@ a.--usr-rst::before {
 </div>
 <script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
+	
+			
+		
+		//	   * 设置cookie
+//     * @param name cookie的名称
+//     * @param value cookie的值
+//     * @param day cookie的过期时间
+//     */
+      var setCookie = function (name, value, day) {
+        if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+          var expires = day * 24 * 60 * 60 * 1000;
+         var date = new Date(+new Date()+expires);
+         document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+       }else{
+         document.cookie = name + "=" + escape(value);
+       }
+     };
+	 /**
+       * 获取对应名称的cookie
+       * @param name cookie的名称
+       * @returns {null} 不存在时，返回null
+      */
+      var getCookie = function (name) {
+        var arr;
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+         return unescape(arr[2]);
+       else
+         return null;
+     };
+	
+	
+	
+	
+	
+	
+	
 //to-do. dry-up & remove jq
 //点击切换背景颜色
 $('.select__label').click(function() {
@@ -857,12 +894,12 @@ $(function(){
 			var password=$("#js-field__pass").val()
 			console.log(username)
 			console.log(password)
-			if (username=="武大郎"&&password==123456) {
-				alert("登陆成功")
-				window.location.href="gl.html"
-			}else{
-				alert("登陆失败")
-			}
+			
+				setCookie("username",username)
+				setTimeout(function(){
+					window.location.href="compare.html";
+				},500)
+			
 				
 		
 		}else {
