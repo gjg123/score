@@ -37,6 +37,18 @@
 			<span>王五的业务分数是</span>
 			<span class="wangwu"></span>
 		</div>
+		<div class="">
+			<span>李四的业务分数是</span>
+			<span class="lisi"></span>
+		</div>
+		<div class="">
+			<span>张三的业务分数是</span>
+			<span class="zhangsan"></span>
+		</div>
+		<div class="">
+			<span>娟娟的业务分数是</span>
+			<span class="juanjuan"></span>
+		</div>
 	</div>
 	</body>
 	<script type="text/javascript">
@@ -82,9 +94,9 @@
 		$(".scores").append(obj.name)
 		$(".lili").append(obj.liliyewu)
 		$(".wangwu").append(obj1.wangwuyewu)
-		
-		
-		
+		$(".lisi").append(getCookie("lisiyewu"))
+		$(".zhangsan").append(getCookie("zhangsanyewu"))
+		$(".juanjuan").append(getCookie("juanjuanyewu"))
 		
 		
 	//	JSON.stringify(getCookie("liliyewu"))
