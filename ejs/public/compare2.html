@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	<link rel="stylesheet" type="text/css" href="themes/black/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/mobile.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="js/swiper.min.css"/>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.mobile.js"></script>
+	
+		<style type="text/css">
+			html{
+				height:100%;
+				width:100%;
+				
+			}
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: limegreen;
+			}
+			.top{
+				width:100%;
+				height:30px;
+				background: peru;
+				text-align: center;
+				line-height: 30px;
+			}
+			.box{
+				/*width:100%;*/
+				border:1px solid red;
+				box-sizing: border-box;
+				/*height:300px;*/
+				text-align: center;
+			}
+			.box1{
+				height:100px;
+				border:1px solid red;
+				/*height:300px;*/
+			}
+			.btn{
+				width:100px;
+				height:30px;
+				background: deepskyblue;
+				margin-top:10px;
+			}
+
+		</style>
+	</head>
+	<body>
+	<div class="top">
+		<span>名单:</span>
+		<span>张三</span>
+		<span>李四</span>
+		<span>王五</span>		
+		<span>娟娟</span>
+		<span>莉莉</span>
+	</div>
+	
+	<div class="box">
+		<div class="box1">
+			<h6>第一轮</h6>
+			<div class="">
+				<input type="radio" name="ab" id="ab" value="张三" />张三
+				<input type="radio" name="ab" id="ab" value="李四" />李四
+			</div>
+			<div class="">
+				<input type="radio" name="ac" id="ab" value="张三" />张三
+				<input type="radio" name="ac" id="ab" value="王五" />王五
+			</div>
+			<div class="">
+				<input type="radio" name="ad" id="ad" value="张三" />张三
+				<input type="radio" name="ad" id="ad" value="娟娟" />娟娟
+			</div>
+			<div class="">
+				<input type="radio" name="ae" id="ad" value="张三" />张三
+				<input type="radio" name="ae" id="ad" value="莉莉" />莉莉
+			</div>
+		</div>
+		<div class="box1">
+			<h6>第二轮</h6>
+			<div class="">
+				
+				<input type="radio" name="bc" id="ab" value="李四" />李四
+				<input type="radio" name="bc" id="ab" value="王五" />王五
+			</div>
+			<div class="">
+				<input type="radio" name="bd" id="ab" value="李四" />李四
+				<input type="radio" name="bd" id="ad" value="娟娟" />娟娟
+			</div>
+			<div class="">
+				<input type="radio" name="be" id="ab" value="李四" />李四
+				<input type="radio" name="be" id="ad" value="莉莉" />莉莉
+			</div>
+		</div>
+		<div class="box1">
+			<h6>第三轮</h6>
+			<div class="">
+				<input type="radio" name="cd" id="ab" value="王五" />王五
+				<input type="radio" name="cd" id="ad" value="娟娟" />娟娟
+			</div>
+			<div class="">
+				<input type="radio" name="ce" id="ab" value="王五" />王五
+				<input type="radio" name="ce" id="ad" value="莉莉" />莉莉
+			</div>
+			
+		</div>
+		<div class="box1">
+			<h6>第四轮</h6>
+			<div class="">
+				<input type="radio" name="de" id="ad" value="娟娟" />娟娟
+				<input type="radio" name="de" id="ad" value="莉莉" />莉莉
+			</div>
+			
+			
+		</div>
+	</div>	
+	
+		
+			
+	
+	<button class="btn">保存跳转</button>
+	
+	
+			
+		
+	</body>
+	<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//	   * 设置cookie
+//     * @param name cookie的名称
+//     * @param value cookie的值
+//     * @param day cookie的过期时间
+//     */
+      var setCookie = function (name, value, day) {
+        if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+          var expires = day * 24 * 60 * 60 * 1000;
+         var date = new Date(+new Date()+expires);
+         document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+       }else{
+         document.cookie = name + "=" + escape(value);
+       }
+     };
+	 /**
+       * 获取对应名称的cookie
+       * @param name cookie的名称
+       * @returns {null} 不存在时，返回null
+      */
+      var getCookie = function (name) {
+        var arr;
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+         return unescape(arr[2]);
+       else
+         return null;
+     };
+	
+			var arr=[]
+		var ren=getCookie("username")
+		
+			
+			$(".btn").click(function(){
+				$("input[name='ab']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				$("input[name='ac']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				$("input[name='ad']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				$("input[name='ae']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				
+				$("input[name='bc']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				$("input[name='bd']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				$("input[name='be']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				
+				$("input[name='cd']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				$("input[name='ce']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				
+				$("input[name='de']:checked").each(function(){
+					console.log($(this).val())
+					arr.push($(this).val())
+				})
+				console.log(arr)
+				
+				var a="张三"
+				var b="李四"
+				var c="王五"
+				var d="娟娟"
+				var e="莉莉"
+				var arr1=[]
+				var arr2=[]
+				var arr3=[]
+				var arr4=[]
+				var arr5=[]
+				for (var i=0;i<arr.length;i++){
+					if (a==arr[i]){
+						arr1.push(arr[i])
+					}
+					if (b==arr[i]){
+						arr2.push(arr[i])
+					}
+					if (c==arr[i]){
+						arr3.push(arr[i])
+					}
+					if (d==arr[i]){
+						arr4.push(arr[i])
+					}
+					if (e==arr[i]){
+						arr5.push(arr[i])
+					}
+					
+				}
+				console.log(arr1.length)
+				console.log(arr2.length)
+				console.log(arr3.length)
+				console.log(arr4.length)
+				console.log(arr5.length)
+				
+				
+				localStorage.setItem("aYa",JSON.stringify(arr1.length))
+				localStorage.setItem("bYa",JSON.stringify(arr2.length))
+				localStorage.setItem("cYa",JSON.stringify(arr3.length))
+				localStorage.setItem("dYa",JSON.stringify(arr4.length))
+				localStorage.setItem("eYa",JSON.stringify(arr5.length))
+				
+				localStorage.setItem("namess",ren)
+				window.location.href="result2.html"
+				
+				
+				
+				
+				
+				
+				
+				
+			})
+	</script>
+	
+</html>
+
+
+
+         
+
+
+
+

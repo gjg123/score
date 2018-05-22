@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: peru;
+			}
+			div{
+				margin-top:20px;
+				margin-left:80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="">
+			<span>登陆的人是:</span>
+			<span class="ren"></span>
+		</div>
+		<div class="">
+			<span>张三的业务分数是</span>
+			<span class="a"></span>
+		</div>
+		<div class="">
+			<span>李四的业务分数是</span>
+			<span class="b"></span>
+		</div>
+		<div class="">
+			<span>王五的业务分数是</span>
+			<span class="c"></span>
+		</div>
+		<div class="">
+			<span>娟娟的业务分数是</span>
+			<span class="d"></span>
+		</div>
+		<div class="">
+			<span>莉莉的业务分数是</span>
+			<span class="e"></span>
+		</div>
+	</body>
+	<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+	var ren=localStorage.getItem("namess")
+	
+	$(".ren").append(ren)	
+		
+		
+		
+		var aYa=localStorage.getItem("aYa")
+		var bYa=localStorage.getItem("bYa")
+		var cYa=localStorage.getItem("cYa")
+		var dYa=localStorage.getItem("dYa")
+		var eYa=localStorage.getItem("eYa")
+		$(".a").append(aYa)
+		$(".b").append(bYa)
+		$(".c").append(cYa)
+		$(".d").append(dYa)
+		$(".e").append(eYa)
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>
