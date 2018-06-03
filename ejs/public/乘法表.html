@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			.person{
+				display: block;
+				background: mediumpurple;
+				width:300px;
+				height:50px;
+			}
+		    .btn{
+		    	
+		    	position: fixed;
+		    	bottom:100px;
+		    	right:100px;
+		    	background: red;
+		    }
+		    .top{
+		    	width:600px;
+		    	height:300px;
+		    	border:5px solid red;
+		    }
+		    #personOne,#personTwo{
+		    	width:100px;
+		    	height:50px;
+		    }
+		    #list{
+		    	width:100px;
+		    	height:50px;
+		    }
+		    .bbb{
+		    	width:300px;
+		    	height:300px;
+		    	border:1px solid red;
+		    }
+		    .bn{
+		    	display: block;
+		    }
+		</style>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>	
+	<body>	
+		
+		<div class="top">
+			<input type="button" name="personOne" id="personOne" value="" />VS
+			<input type="button" name="personOne" id="personTwo" value=""/>
+			=
+			<input type="text" name="list" id="list" value="" />
+		</div>
+		<div class="bbb">
+			
+		</div>
+		
+		<div class="">
+			<button class="btn">下一个</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+	var n=0
+	var html=''
+    var aa="<input type='text' id='td'/>"    
+    var arr=["张三","李四","王五","娟娟","莉莉","小娟","小丽","阿丽","娟子"]
+    var arr1=["张三","李四","王五","娟娟","莉莉","小娟","小丽","阿丽","娟子"]
+  
+    $(".btn").click(function(){
+    	n++
+    	console.log(n)
+    	for(var i=1;i<n;i++){
+           console.log(n)
+                for(var j=1;j<=i;j++){                  					
+					$("#personOne").val(arr[j-1])	
+					$("#personTwo").val(arr[i])
+                	html="<span class='bn'>"+arr[j-1] +"*"+ arr[i] +"</span>"
+                	
+                }
+           
+        }
+
+
+    
+
+			
+		
+      $(".bbb").append(html)    		
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    console.log(arr)
+	</script>
+</html>

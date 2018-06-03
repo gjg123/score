@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			    div{  
+			        text-align:center;  
+			        margin: 0 auto;  
+			       }
+		</style>
+	</head>	
+	<body>		
+		<div class="div1"></div>  
+		<div>  
+			<button onclick="Mult_01();">表一</button>  
+			<button onclick="Mult_02();">表二</button>  
+			<button onclick="Mult_03();">表三</button>  
+			<button onclick="Mult_04();">表四</button>  
+		</div>
+	</body>
+	<script type="text/javascript">
+		        function Mult_01()  
+        {  
+            document.write("<div class='div1' style='width:800px;height:500px;border: 1px solid green;text-align:left;margin: 0 auto; '>");  
+            document.write("<hr>");  
+            for(var i=1;i<=9;i++)  
+                {  
+                  for(var j=1;j<=i;j++)  
+                    {  
+                        document.write(j+"*"+i+"="+i*j+"    \t");  
+                    }  
+                    document.writeln("<br>");  
+                }  
+            document.write("</div>");  
+        }  
+        function Mult_02()  
+        {  
+            document.write("<div class='div1' style='width:800px;height:500px;border: 1px solid green;text-align:left;margin: 0 auto; '>");  
+            document.write("<hr>");  
+            for(var i=9;i>=1;i--)  
+                {  
+                  for(var j=1;j<=i;j++)  
+                    {  
+                        document.write(j+"*"+i+"="+i*j+"    \t");  
+                    }  
+                    document.writeln("<br>");  
+                }  
+            document.write("</div>");  
+        }  
+        function Mult_03()  
+        {  
+            document.write("<div class='div1' style='width:800px;height:500px;border: 1px solid green;text-align:right;margin: 0 auto; '>");  
+            document.write("<hr>");  
+            for(var i=1;i<=9;i++)  
+                {  
+                  for(var k=i;k<=9-i;k++)  
+                      {  
+                      document.write("        \t");  
+                      }  
+                  
+                  for(var j=i;j>=1;j--)  
+                    {  
+                        document.write(i+"*"+j+"="+i*j+"    \t");  
+                    }  
+                    document.writeln("<br>");  
+                }  
+            document.write("</div>");  
+        }  
+        function Mult_04()  
+        {  
+            document.write("<div class='div1' style='width:800px;height:500px;border: 1px solid green;text-align:right;margin: 0 auto; '>");  
+            document.write("<hr>");  
+            for(var i=9;i>=1;i--)  
+                {  
+                  for(var j=i;j>=1;j--)  
+                    {  
+                        document.write(j+"*"+i+"="+i*j+"    ");  
+                    }  
+                  for(var k=9-i;k>=1;k--)  
+                      {  
+                      document.write("\t");  
+                      }  
+                    document.writeln("<br>");  
+                }  
+            document.write("</div>");  
+        }
+	</script>
+</html>

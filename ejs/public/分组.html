@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#personTwo,#personOne{
+				width:100px;
+				height:50px;
+			}
+			.nameBox{
+				width:300px;
+				height:300px;
+				border:1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="personOne" id="personOne" value="" />
+		VS
+		<input type="button" name="personTwo" id="personTwo" value="" />
+		=
+		<input type="text" name="successPerson" id="successPerson" value="" />
+		<div class="">
+			<button class="btn">下一个</button>	
+		</div>
+		<div class="nameBox">
+			
+		</div>
+	</body>
+	<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var x=''
+		var n=0
+		var arr=["a","b","c","d","e","f"]
+		var result = [];
+		for(var i=0,len=arr.length;i<len;i+=2){
+		   result.push(arr.slice(i,i+2));
+		}
+		console.log(result)
+		
+		
+		
+		
+		$(".btn").click(function(){	
+				$("#personOne").val(result[n][0])
+		 		$("#personTwo").val(result[n][1])
+				n++
+		})
+		$("input[type=button]").click(function(){		
+			$("#successPerson").val($(this).val())	
+		 })
+	</script>
+</html>
